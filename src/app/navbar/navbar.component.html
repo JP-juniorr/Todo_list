@@ -1,0 +1,18 @@
+<!-- Creating the Navbar -->
+<!-- NAVBAR WRAPPER -->
+<nav class="navbar">
+  <!-- NAVBAR LEFT -->
+  <div class="nav-left">
+    <span class="clock-icon">⏰</span>
+    <span class="nav-title">Todo List</span>
+  </div>
+  <!-- NAVBAR LEFT -->
+  <div class="nav-right">
+    <span class="theme-label">Light</span>
+    <label class="switch">
+      <input type="checkbox" [checked]="isDarkMode" (change)="toggleTheme()" />
+      <span class="slider round"></span>
+    </label>
+    <span class="theme-label">Dark</span>
+  </div>
+</nav>

@@ -1,0 +1,40 @@
+<!-- Main Wrapper -->
+<div class="wrapper_timer">
+  <!-- Upper Part -->
+  <div class="upper_timer">
+    <!-- Focus Time  -->
+    <div class="focus"><p>Focus Time</p></div>
+    <!-- Swith  -->
+    <div class="switch_clock">
+      <span class="digital">Digital</span>
+      <label class="switch">
+        <input
+          type="checkbox"
+          [checked]="toggleMyDisplay"
+          (change)="toggleDisplay()"
+        />
+        <span class="slider round"></span>
+      </label>
+      <span class="timer">Timer</span>
+    </div>
+  </div>
+  <!-- Middle Part -->
+  <div class="middle_timer">
+    @if (!toggleMyDisplay) {
+    <div class="display_Clock">
+      <h1>{{ currentTime }}</h1>
+    </div>
+    }@else {
+    <div class="display_timer">
+      <div>
+        <div class="timer-display">{{ minutes }}:{{ seconds }}</div>
+        <div class="timer-controls">
+          <button (click)="startTimer()" [disabled]="isRunning">Start</button>
+          <button (click)="stopTimer()" [disabled]="!isRunning">Stop</button>
+          <button (click)="resetTimer()">Reset</button>
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+</div>

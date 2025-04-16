@@ -1,0 +1,43 @@
+<div class="task-container">
+  <h2>Your Tasks</h2>
+
+  <div class="task-input-wrapper">
+    <input type="text" [(ngModel)]="newTask" placeholder="Add a new task" />
+    <button (click)="addTask()"><span>➕</span> Add</button>
+    <button (click)="resetTasks()">🗑️</button>
+  </div>
+
+  <hr />
+
+  <h3>Tasks</h3>
+  <p *ngIf="tasks.length === 0">No tasks yet. Add some tasks to get started!</p>
+
+  <ul>
+    <li *ngFor="let task of tasks">
+      <input
+        type="checkbox"
+        [checked]="task.completed"
+        (change)="toggleComplete(task)"
+      />
+
+      <span
+        [class.completed]="task.completed"
+        *ngIf="!task.isEditing"
+        (dblclick)="editTask(task)"
+      >
+        {{ task.title }}
+      </span>
+
+      <input
+        *ngIf="task.isEditing"
+        [ngModel]="task.title"
+        (ngModelChange)="task.title = $event"
+        (blur)="saveTask(task)"
+        (keydown.enter)="saveTask(task)"
+        autofocus
+      />
+
+      <button (click)="deleteTask(task.id)">❌</button>
+    </li>
+  </ul>
+</div>

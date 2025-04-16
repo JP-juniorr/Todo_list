@@ -1,0 +1,89 @@
+.showcase {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.timer-component,
+.todo-component {
+  flex: 1;
+  background-color: #f5f5f5; /* Default for light mode */
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  min-height: 350px;
+  color: #333; /* Default text color for light mode */
+}
+
+/* Dark mode styles for the boxes */
+body.dark-theme .timer-component,
+body.dark-theme .todo-component {
+  background-color: #2a2a2a; /* Dark gray background for dark mode */
+  color: #ffffff; /* White text for visibility */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Slightly darker shadow */
+}
+
+/* Ensure nested elements inherit the correct color */
+body.dark-theme .timer-component *,
+body.dark-theme .todo-component * {
+  color: #ffffff;
+}
+
+/* Light mode styles (optional, for clarity) */
+body.light-theme .timer-component,
+body.light-theme .todo-component {
+  background-color: #ffffff;
+  color: #333;
+}
+
+body.light-theme .timer-component *,
+body.light-theme .todo-component * {
+  color: #333;
+}
+
+/* Tablet (768px–1023px) */
+@media (max-width: 1023px) {
+  .showcase {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .timer-component,
+  .todo-component {
+    min-height: 300px;
+    padding: 15px;
+  }
+}
+
+/* Mobile (≤767px) */
+@media (max-width: 767px) {
+  .showcase {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .timer-component,
+  .todo-component {
+    min-height: 250px;
+    padding: 10px;
+    border-radius: 8px;
+  }
+}
+
+/* Very Small Screens (≤576px) */
+@media (max-width: 576px) {
+  .showcase {
+    padding: 5px;
+  }
+
+  .timer-component,
+  .todo-component {
+    min-height: 200px;
+    padding: 8px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  }
+}
